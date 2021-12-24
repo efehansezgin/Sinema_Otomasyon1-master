@@ -1,0 +1,173 @@
+USE [sinema]
+GO
+/****** Object:  Table [dbo].[filmler]    Script Date: 21.12.2021 13:42:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[filmler](
+	[film_id] [int] IDENTITY(1,1) NOT NULL,
+	[seans_id] [int] NULL,
+	[salon_id] [nchar](10) NULL,
+	[film_adi] [nvarchar](150) NULL,
+	[film_turu] [nvarchar](150) NULL,
+	[yonetmen] [nvarchar](50) NULL,
+	[afis] [nvarchar](250) NULL,
+ CONSTRAINT [PK_filmler] PRIMARY KEY CLUSTERED 
+(
+	[film_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[kisiler]    Script Date: 21.12.2021 13:42:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[kisiler](
+	[kisi_id] [int] IDENTITY(1,1) NOT NULL,
+	[kullanici_Adi] [nvarchar](50) NULL,
+	[sifre] [nvarchar](50) NULL,
+	[sifre_tek] [nvarchar](50) NULL,
+	[gmail] [nvarchar](50) NULL,
+	[tel] [nvarchar](50) NULL,
+ CONSTRAINT [PK_kisiler] PRIMARY KEY CLUSTERED 
+(
+	[kisi_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[salon]    Script Date: 21.12.2021 13:42:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[salon](
+	[salon_id] [int] IDENTITY(1,1) NOT NULL,
+	[salon_adi] [nvarchar](250) NULL,
+ CONSTRAINT [PK_salon] PRIMARY KEY CLUSTERED 
+(
+	[salon_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[salon_seans]    Script Date: 21.12.2021 13:42:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[salon_seans](
+	[salon_id] [int] NULL,
+	[seans_id] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[satis]    Script Date: 21.12.2021 13:42:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[satis](
+	[satis_id] [int] IDENTITY(1,1) NOT NULL,
+	[film_id] [int] NULL,
+	[seans_id] [int] NULL,
+	[salon_id] [int] NULL,
+	[kisi_adi] [nvarchar](150) NULL,
+	[kisi_soyadi] [nvarchar](150) NULL,
+ CONSTRAINT [PK_satis] PRIMARY KEY CLUSTERED 
+(
+	[satis_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[seans]    Script Date: 21.12.2021 13:42:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[seans](
+	[seans_id] [int] IDENTITY(1,1) NOT NULL,
+	[seans_adi] [nvarchar](150) NULL,
+	[seans_tarih] [nvarchar](150) NULL,
+	[seans_saat] [nvarchar](150) NULL,
+ CONSTRAINT [PK_seans] PRIMARY KEY CLUSTERED 
+(
+	[seans_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[filmler] ON 
+GO
+INSERT [dbo].[filmler] ([film_id], [seans_id], [salon_id], [film_adi], [film_turu], [yonetmen], [afis]) VALUES (1, 1, N'1         ', N'rec 4', N'korku', N'ramazan', N'önecikangorsel.jpg')
+GO
+INSERT [dbo].[filmler] ([film_id], [seans_id], [salon_id], [film_adi], [film_turu], [yonetmen], [afis]) VALUES (3, 1, N'2         ', N'RECEP İVEDİK', N'RECEP ', N'RECEP', N'eğitim-toplum-pisa1.jpg')
+GO
+INSERT [dbo].[filmler] ([film_id], [seans_id], [salon_id], [film_adi], [film_turu], [yonetmen], [afis]) VALUES (4, 2, N'2         ', N'SA', N'SA', N'SA', N'movie64.png')
+GO
+INSERT [dbo].[filmler] ([film_id], [seans_id], [salon_id], [film_adi], [film_turu], [yonetmen], [afis]) VALUES (5, 2, N'1         ', N'SA', N'SA', N'SA', N'blog2.png')
+GO
+INSERT [dbo].[filmler] ([film_id], [seans_id], [salon_id], [film_adi], [film_turu], [yonetmen], [afis]) VALUES (6, 2, N'1         ', N'DE', N'DE', N'DE', N'Untitled.png')
+GO
+INSERT [dbo].[filmler] ([film_id], [seans_id], [salon_id], [film_adi], [film_turu], [yonetmen], [afis]) VALUES (7, 3, N'1         ', N'Recep İvedik 4', N'Komedi', N'Şahan', N'recepivedik4.jpg')
+GO
+SET IDENTITY_INSERT [dbo].[filmler] OFF
+GO
+SET IDENTITY_INSERT [dbo].[kisiler] ON 
+GO
+INSERT [dbo].[kisiler] ([kisi_id], [kullanici_Adi], [sifre], [sifre_tek], [gmail], [tel]) VALUES (1, N'baran', N'b', N'b', N'b@gmail.com', N'(5278) 549-6544')
+GO
+SET IDENTITY_INSERT [dbo].[kisiler] OFF
+GO
+SET IDENTITY_INSERT [dbo].[salon] ON 
+GO
+INSERT [dbo].[salon] ([salon_id], [salon_adi]) VALUES (1, N'SALON NO 1')
+GO
+INSERT [dbo].[salon] ([salon_id], [salon_adi]) VALUES (2, N'SALON NO 2')
+GO
+INSERT [dbo].[salon] ([salon_id], [salon_adi]) VALUES (3, N'SALON NO 3')
+GO
+INSERT [dbo].[salon] ([salon_id], [salon_adi]) VALUES (4, N'SALON NO 4')
+GO
+INSERT [dbo].[salon] ([salon_id], [salon_adi]) VALUES (5, N'SALON NO 5')
+GO
+INSERT [dbo].[salon] ([salon_id], [salon_adi]) VALUES (6, N'SALON NO 7')
+GO
+INSERT [dbo].[salon] ([salon_id], [salon_adi]) VALUES (7, N'salon_adi')
+GO
+INSERT [dbo].[salon] ([salon_id], [salon_adi]) VALUES (8, N'salon_adi')
+GO
+INSERT [dbo].[salon] ([salon_id], [salon_adi]) VALUES (9, N'salon_adi')
+GO
+SET IDENTITY_INSERT [dbo].[salon] OFF
+GO
+SET IDENTITY_INSERT [dbo].[satis] ON 
+GO
+INSERT [dbo].[satis] ([satis_id], [film_id], [seans_id], [salon_id], [kisi_adi], [kisi_soyadi]) VALUES (1, 4, 2, 2, N'ramazan', N'şerif')
+GO
+INSERT [dbo].[satis] ([satis_id], [film_id], [seans_id], [salon_id], [kisi_adi], [kisi_soyadi]) VALUES (2, 3, 1, 2, N'RAMAZAN', N'ŞERİF')
+GO
+SET IDENTITY_INSERT [dbo].[satis] OFF
+GO
+SET IDENTITY_INSERT [dbo].[seans] ON 
+GO
+INSERT [dbo].[seans] ([seans_id], [seans_adi], [seans_tarih], [seans_saat]) VALUES (1, N'Seans 1', N'21/12/2016', N'03:29')
+GO
+INSERT [dbo].[seans] ([seans_id], [seans_adi], [seans_tarih], [seans_saat]) VALUES (2, N'Seans 2', N'21/12/2016', N'12:00')
+GO
+INSERT [dbo].[seans] ([seans_id], [seans_adi], [seans_tarih], [seans_saat]) VALUES (3, N'', N'21.12.2016', N'  :')
+GO
+INSERT [dbo].[seans] ([seans_id], [seans_adi], [seans_tarih], [seans_saat]) VALUES (4, N'seanssss', N'21.12.2016', N'11:12')
+GO
+INSERT [dbo].[seans] ([seans_id], [seans_adi], [seans_tarih], [seans_saat]) VALUES (5, N'Seans 10', N'21.12.2016', N'24:24')
+GO
+INSERT [dbo].[seans] ([seans_id], [seans_adi], [seans_tarih], [seans_saat]) VALUES (6, N'', N'21.12.2016', N'  :')
+GO
+INSERT [dbo].[seans] ([seans_id], [seans_adi], [seans_tarih], [seans_saat]) VALUES (7, N'', N'21.12.2016', N'  :')
+GO
+INSERT [dbo].[seans] ([seans_id], [seans_adi], [seans_tarih], [seans_saat]) VALUES (8, N'sa', N'21.12.2016', N'24:42')
+GO
+INSERT [dbo].[seans] ([seans_id], [seans_adi], [seans_tarih], [seans_saat]) VALUES (9, N'sa', N'21.12.2016', N'24:42')
+GO
+INSERT [dbo].[seans] ([seans_id], [seans_adi], [seans_tarih], [seans_saat]) VALUES (10, N'yeni sezon', N'21.12.2016', N'12:30')
+GO
+SET IDENTITY_INSERT [dbo].[seans] OFF
+GO

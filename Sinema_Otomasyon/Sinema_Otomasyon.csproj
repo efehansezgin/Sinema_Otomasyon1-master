@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{10A43A01-9F0B-4B3D-A294-E579215C2B86}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sinema_Otomasyon</RootNamespace>
+    <AssemblyName>Sinema_Otomasyon</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bilet_Kes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bilet_Kes.Designer.cs">
+      <DependentUpon>Bilet_Kes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Film.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Film.Designer.cs">
+      <DependentUpon>Film.cs</DependentUpon>
+    </Compile>
+    <Compile Include="filmler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="filmler.Designer.cs">
+      <DependentUpon>filmler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Girisyap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Girisyap.Designer.cs">
+      <DependentUpon>Girisyap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KayıtOlma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KayıtOlma.Designer.cs">
+      <DependentUpon>KayıtOlma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Koltuk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Koltuk.Designer.cs">
+      <DependentUpon>Koltuk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="salonlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="salonlar.Designer.cs">
+      <DependentUpon>salonlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="seanslar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="seanslar.Designer.cs">
+      <DependentUpon>seanslar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sinema.cs" />
+    <EmbeddedResource Include="Bilet_Kes.resx">
+      <DependentUpon>Bilet_Kes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="filmler.resx">
+      <DependentUpon>filmler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Girisyap.resx">
+      <DependentUpon>Girisyap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KayıtOlma.resx">
+      <DependentUpon>KayıtOlma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Koltuk.resx">
+      <DependentUpon>Koltuk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="salonlar.resx">
+      <DependentUpon>salonlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="seanslar.resx">
+      <DependentUpon>seanslar.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sinema.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cooltext222424064763149.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sinoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\otomasyonlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anasayfa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duzenle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kapat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ekle32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seans.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salonekle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bilet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\movie48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AFİSEKLE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ySIe3RSpxNDaIsEuou7mHYd155zpIizlGWfvCmJ3.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3452-rdfFQ.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1a1-4Pds_cover.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
