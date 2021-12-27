@@ -16,7 +16,7 @@ namespace Sinema_Otomasyon
         {
             InitializeComponent();
         }
-        SqlConnection baglanti = new SqlConnection("Data Source=WIN-5D1N64KPPAU;Initial Catalog=sinema;User ID=sa;Password=qwerT12/;");
+        SqlConnection baglanti = new SqlConnection("Data Source=WIN-IM38HI1GTD6\\SQLEXPRESS;Initial Catalog=sinema;Integrated Security=True");
         private void button2_Click(object sender, EventArgs e)
         {
             baglanti.Open();

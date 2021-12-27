@@ -147,7 +147,7 @@ namespace Sinema_Otomasyon
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = global::Sinema_Otomasyon.Properties.Resources.save;
+            this.button3.Image = global::Sinema_Otomasyon.Properties.Resources.bilet;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(607, 612);
             this.button3.Name = "button3";

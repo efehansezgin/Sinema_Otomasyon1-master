@@ -19,7 +19,7 @@ namespace Sinema_Otomasyon
         string dosyayolu;
         string dosyaAdi;
        
-        SqlConnection baglanti = new SqlConnection("Data Source=WIN-5D1N64KPPAU;Initial Catalog=sinema;User ID=sa;Password=qwerT12/;");
+        SqlConnection baglanti = new SqlConnection("Data Source=WIN-IM38HI1GTD6\\SQLEXPRESS;Initial Catalog=sinema;Integrated Security=True");
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
@@ -142,13 +142,12 @@ namespace Sinema_Otomasyon
             Application.Exit();
         }
 
+        int deneme;
         private void button2_Click_1(object sender, EventArgs e)
         {
 
-            
-            
-                baglanti.Open();
-                SqlCommand ekle = new SqlCommand("insert into filmler(film_adi,film_turu,yonetmen,afis,yapimtar) values ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + pictureBox1.ImageLocation.ToString() + "','" + dateTimePicker1.Text+"')", baglanti);
+            baglanti.Open();
+                SqlCommand ekle = new SqlCommand("insert into filmler(film_adi,film_turu,yonetmen,afis,yapimtar,salon_id,seans_id) values ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + pictureBox1.ImageLocation.ToString() + "','" + dateTimePicker1.Text+"','"+ deneme2 + "','"+ deneme +"')" , baglanti);
                 ekle.ExecuteNonQuery();
                 ekle.Dispose();
                 MessageBox.Show("Ekleme İşleminiz Başarıyla Gerçekleşmiştir.","Kayıt");
@@ -161,6 +160,7 @@ namespace Sinema_Otomasyon
                 comboBox3.Text = "";
                 comboBox4.Text = "";
                 pictureBox1.ImageLocation = "AFİSEKLE.png";
+                
             //}
             //catch (Exception hata)
             //{
@@ -174,6 +174,44 @@ namespace Sinema_Otomasyon
             Form1 frmm = new Form1();
             frmm.Show();
             this.Hide();
+        }
+
+        private void comboBox4_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand();
+
+            komut.CommandText = "select * from seans where seans_adi='" + comboBox4.Text + "'";
+            komut.Connection = baglanti;
+            komut.CommandType = CommandType.Text;
+            SqlDataReader dr2;
+
+            dr2 = komut.ExecuteReader();
+            while (dr2.Read())
+            {
+                deneme = Convert.ToInt32(dr2["seans_id"]);
+            }
+            baglanti.Close();
+            dr2.Close();
+        }
+        int deneme2;
+        private void comboBox3_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand();
+
+            komut.CommandText = "select * from salon where salon_adi='" + comboBox3.Text + "'";
+            komut.Connection = baglanti;
+            komut.CommandType = CommandType.Text;
+            SqlDataReader dr2;
+
+            dr2 = komut.ExecuteReader();
+            while (dr2.Read())
+            {
+                deneme2 = Convert.ToInt32(dr2["salon_id"]);
+            }
+            dr2.Close();
+            baglanti.Close();
         }
     }
 }

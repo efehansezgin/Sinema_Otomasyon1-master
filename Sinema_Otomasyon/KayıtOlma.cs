@@ -16,7 +16,7 @@ namespace Sinema_Otomasyon
         {
             InitializeComponent();
         }
-        SqlConnection baglanti = new SqlConnection("Data Source=WIN-5D1N64KPPAU;Initial Catalog=sinema;User ID=sa;Password=qwerT12/;");
+        SqlConnection baglanti = new SqlConnection("Data Source=WIN-IM38HI1GTD6\\SQLEXPRESS;Initial Catalog=sinema;Integrated Security=True");
         private void KayıtOlma_Load(object sender, EventArgs e)
         {
 
@@ -145,11 +145,20 @@ namespace Sinema_Otomasyon
 
         private void button2_Click(object sender, EventArgs e)
         {
-            baglanti.Open();
-            SqlCommand command = new SqlCommand("Insert into kisiler (kullanici_adi,sifre,sifre_tek,gmail,tel) values ('" + (textBox1.Text) + "', '" + (textBox2.Text) + "', '" + (textBox3.Text) + "','" + (textBox4.Text) + "', '" + (maskedTextBox1.Text) + "')", baglanti);
-            command.ExecuteNonQuery();
-            baglanti.Close();
-            MessageBox.Show("Kayıt yapıldı! Giriş yapabilirsiniz.");
+            if (textBox2.Text == textBox3.Text)
+            {
+                baglanti.Open();
+                SqlCommand command = new SqlCommand("Insert into kisiler (kullanici_adi,sifre,sifre_tek,gmail,tel) values ('" + (textBox1.Text) + "', '" + (textBox2.Text) + "', '" + (textBox3.Text) + "','" + (textBox4.Text) + "', '" + (maskedTextBox1.Text) + "')", baglanti);
+                command.ExecuteNonQuery();
+                baglanti.Close();
+                MessageBox.Show("Kayıt yapıldı! Giriş yapabilirsiniz.");
+            }
+            else
+            {
+                textBox3.BackColor = Color.Red;
+                MessageBox.Show("Kayıt yapılmadı! Şifre yanlış","Uyarı");
+                textBox3.BackColor = Color.Gray;
+            }
         }
     }
 }

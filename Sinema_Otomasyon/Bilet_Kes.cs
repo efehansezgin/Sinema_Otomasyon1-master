@@ -15,7 +15,7 @@ namespace Sinema_Otomasyon
         {
             InitializeComponent();
         }
-        SqlConnection baglanti = new SqlConnection("Data Source=WIN-5D1N64KPPAU;Initial Catalog=sinema;User ID=sa;Password=qwerT12/;");
+        SqlConnection baglanti = new SqlConnection("Data Source=WIN-IM38HI1GTD6\\SQLEXPRESS;Initial Catalog=sinema;Integrated Security=True");
 
 
 
@@ -39,8 +39,8 @@ namespace Sinema_Otomasyon
             }
             baglanti.Close();
 
-            salon();
-            seans();
+            //salon();
+            //seans();
 
 
 
@@ -156,9 +156,68 @@ namespace Sinema_Otomasyon
         {
 
         }
+        int salon_id, seans_id;
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            comboBox2.Items.Clear();
+            comboBox3.Items.Clear();
+
+            baglanti.Open();
+            SqlCommand komut = new SqlCommand();
+
+            komut.CommandText = "select * from filmler where film_adi='" + comboBox1.Text + "'";
+            komut.Connection = baglanti;
+            komut.CommandType = CommandType.Text;
+            SqlDataReader dr2;
+
+            dr2 = komut.ExecuteReader();
+            while (dr2.Read())
+            {
+                salon_id= Convert.ToInt32(dr2["salon_id"]);
+                seans_id = Convert.ToInt32(dr2["seans_id"]);
+            }
+            dr2.Close();
+            baglanti.Close();
+
+            baglanti.Open();
+            SqlCommand komut2 = new SqlCommand();
+
+            komut2.CommandText = "select * from salon where salon_id='" + salon_id + "'";
+            komut2.Connection = baglanti;
+            komut2.CommandType = CommandType.Text;
+            SqlDataReader dr22;
+
+            dr22 = komut2.ExecuteReader();
+            while (dr22.Read())
+            {
+                comboBox2.Items.Add(dr22["salon_adi"]);
+            }
+            dr22.Close();
+            baglanti.Close();
+
+            /////////////////////
+            ///
+
+
+
+
+            baglanti.Open();
+            SqlCommand komut3 = new SqlCommand();
+
+            komut3.CommandText = "select * from seans where seans_id='" + seans_id + "'";
+            komut3.Connection = baglanti;
+            komut3.CommandType = CommandType.Text;
+            SqlDataReader dr3;
+
+            dr3 = komut3.ExecuteReader();
+            while (dr3.Read())
+            {
+                comboBox3.Items.Add(dr3["seans_adi"]);
+            }
+            dr3.Close();
+            baglanti.Close();
+
         }
 
         private void button1_Click(object sender, EventArgs e)

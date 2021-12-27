@@ -45,9 +45,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(96, 28);
+            this.label7.Location = new System.Drawing.Point(112, 26);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(198, 29);
+            this.label7.Size = new System.Drawing.Size(160, 23);
             this.label7.TabIndex = 17;
             this.label7.Text = "SEANS EKLEME";
             // 
@@ -56,7 +56,7 @@
             this.maskedTextBox1.Location = new System.Drawing.Point(162, 153);
             this.maskedTextBox1.Mask = "00:00";
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(66, 27);
+            this.maskedTextBox1.Size = new System.Drawing.Size(66, 23);
             this.maskedTextBox1.TabIndex = 21;
             this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
             // 
@@ -65,14 +65,14 @@
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(162, 123);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(110, 27);
+            this.dateTimePicker1.Size = new System.Drawing.Size(110, 23);
             this.dateTimePicker1.TabIndex = 22;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(162, 92);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(110, 27);
+            this.textBox1.Size = new System.Drawing.Size(110, 23);
             this.textBox1.TabIndex = 23;
             // 
             // button4
@@ -121,11 +121,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cooper Black", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(58, 94);
+            this.label1.Location = new System.Drawing.Point(63, 94);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 20);
+            this.label1.Size = new System.Drawing.Size(78, 16);
             this.label1.TabIndex = 27;
-            this.label1.Text = "Seans Adı:";
+            this.label1.Text = "Seans Adı";
             // 
             // label2
             // 
@@ -133,7 +133,7 @@
             this.label2.Font = new System.Drawing.Font("Cooper Black", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(92, 123);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 20);
+            this.label2.Size = new System.Drawing.Size(53, 16);
             this.label2.TabIndex = 28;
             this.label2.Text = "Tarihi";
             // 
@@ -143,9 +143,9 @@
             this.label3.Font = new System.Drawing.Font("Cooper Black", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(97, 155);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 20);
+            this.label3.Size = new System.Drawing.Size(44, 16);
             this.label3.TabIndex = 29;
-            this.label3.Text = "Saati:";
+            this.label3.Text = "Saati";
             // 
             // button5
             // 
@@ -164,7 +164,7 @@
             // 
             // seanslar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(384, 301);
