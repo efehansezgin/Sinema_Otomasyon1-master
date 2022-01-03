@@ -20,8 +20,8 @@ namespace Sinema_Otomasyon
         int mouse_x;
         int mouse_y;
         char? none = null;
-        SqlCommand cmd;
-        SqlDataReader dr;
+        //SqlCommand cmd;
+        //SqlDataReader dr;
         SqlConnection baglanti = new SqlConnection("Data Source=WIN-IM38HI1GTD6\\SQLEXPRESS;Initial Catalog=sinema;Integrated Security=True");
         private void Girisyap_Load(object sender, EventArgs e)
         {
@@ -94,26 +94,42 @@ namespace Sinema_Otomasyon
             }
             textBox2.PasswordChar = Convert.ToChar(none);
         }
-
+        bool isThere;
         private void button2_Click(object sender, EventArgs e)
         {
             string user = textBox1.Text;
             string pass = textBox2.Text;
-
-            string sorgu = "SELECT * FROM kisiler where kullanici_adi=@user AND sifre=@pass";
-            cmd = new SqlCommand(sorgu, baglanti);
-            cmd.Parameters.AddWithValue("@user", textBox1.Text);
-            cmd.Parameters.AddWithValue("@pass", textBox2.Text);
             baglanti.Open();
-            dr = cmd.ExecuteReader();
-
-            if (dr.Read())
+            SqlCommand command = new SqlCommand("select * from kisiler",baglanti);
+            SqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
             {
-                MessageBox.Show("Tebrikler! Başarılı bir şekilde giriş yaptınız. ");
-                Bilet_Kes bilet = new Bilet_Kes();
-                bilet.Show();
-                this.Hide();
+                if (user == reader["kullanici_Adi"].ToString().TrimEnd() && pass == reader ["sifre"].ToString().TrimEnd())
+                {
+                    isThere = true;
+                    break;
+                }
+                else
+                {
+                    isThere = false;
+                }
             }
+           
+
+            //string sorgu = "SELECT * FROM kisiler where kullanici_adi=@user AND sifre=@pass";
+            //cmd = new SqlCommand(sorgu, baglanti);
+            //cmd.Parameters.AddWithValue("@user", textBox1.Text);
+            //cmd.Parameters.AddWithValue("@pass", textBox2.Text);
+            //baglanti.Open();
+            //dr = cmd.ExecuteReader();
+
+            //if (dr.Read())
+            //{
+            //    //MessageBox.Show("Tebrikler! Başarılı bir şekilde giriş yaptınız. ");
+            //    //Bilet_Kes bilet = new Bilet_Kes();
+            //    //bilet.Show();
+            //    //this.Hide();
+            //}
             if (textBox1.Text == "admin" && textBox2.Text == "1234")
             {
                 this.Hide();
@@ -121,11 +137,23 @@ namespace Sinema_Otomasyon
                 admin.Show();
                 MessageBox.Show("Tebrikler! Başarılı bir şekilde giriş yaptınız. ");
             }
+            else if (isThere == true)
+            {
+                Bilet_Kes bilet = new Bilet_Kes();
+                bilet.Show();
+                this.Hide();
+
+            }
+            baglanti.Close();
+        
+            if (isThere)
+            {
+                MessageBox.Show("Tebrikler! Başarılı bir şekilde giriş yaptınız. ");
+            }
             else
             {
-                MessageBox.Show("Kullanıcı adını ve şifrenizi kontrol ediniz.");
+                MessageBox.Show("Hatalı Giriş Yaptınız!!!", "Uyarı");
             }
-
            
         }
 

@@ -16,7 +16,7 @@ namespace Sinema_Otomasyon
         {
             InitializeComponent();
         }
-        SqlConnection baglanti = new SqlConnection("Data Source=WIN-IM38HI1GTD6\\SQLEXPRESS;Initial Catalog=sinema;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection("Data Source=WIN-5D1N64KPPAU;Initial Catalog=sinema;User ID=sa;Password=qwerT12/;");
         private void KayıtOlma_Load(object sender, EventArgs e)
         {
 

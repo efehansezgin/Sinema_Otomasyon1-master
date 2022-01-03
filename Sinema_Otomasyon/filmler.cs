@@ -31,6 +31,7 @@ namespace Sinema_Otomasyon
             
            try
             { 
+
                 baglanti.Open();
                 SqlCommand listele = new SqlCommand("select * from salon", baglanti);
                SqlDataReader dr = listele.ExecuteReader();
@@ -145,12 +146,13 @@ namespace Sinema_Otomasyon
         int deneme;
         private void button2_Click_1(object sender, EventArgs e)
         {
-
-            baglanti.Open();
-                SqlCommand ekle = new SqlCommand("insert into filmler(film_adi,film_turu,yonetmen,afis,yapimtar,salon_id,seans_id) values ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + pictureBox1.ImageLocation.ToString() + "','" + dateTimePicker1.Text+"','"+ deneme2 + "','"+ deneme +"')" , baglanti);
+            try
+            {
+                baglanti.Open();
+                SqlCommand ekle = new SqlCommand("insert into filmler(film_adi,film_turu,yonetmen,afis,yapimtar,salon_id,seans_id) values ('" + textBox1.Text + "','" + textBox2.Text + "','" + textBox3.Text + "','" + pictureBox1.ImageLocation.ToString() + "','" + dateTimePicker1.Text + "','" + deneme2 + "','" + deneme + "')", baglanti);
                 ekle.ExecuteNonQuery();
                 ekle.Dispose();
-                MessageBox.Show("Ekleme İşleminiz Başarıyla Gerçekleşmiştir.","Kayıt");
+                MessageBox.Show("Ekleme İşleminiz Başarıyla Gerçekleşmiştir.", "Kayıt");
                 if (dosyaAdi != "") File.WriteAllBytes(dosyaAdi, File.ReadAllBytes(DosyaAc.FileName));
                 MessageBox.Show("Kayıt İşlemi Tamamlandı ! ", "İşlem Sonucu", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 baglanti.Close();
@@ -160,13 +162,15 @@ namespace Sinema_Otomasyon
                 comboBox3.Text = "";
                 comboBox4.Text = "";
                 pictureBox1.ImageLocation = "AFİSEKLE.png";
-                
-            //}
-            //catch (Exception hata)
-            //{
+            }
+            catch (Exception hata)
+            {
 
-            //    MessageBox.Show("Hata" + hata.Message);
-            //}
+                MessageBox.Show(hata.Message);
+            }
+           
+                
+            
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -212,6 +216,16 @@ namespace Sinema_Otomasyon
             }
             dr2.Close();
             baglanti.Close();
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Sinema_Otomasyon
 
             //salon();
             //seans();
-
+            button3.Enabled = false;
 
 
         }
@@ -147,8 +147,8 @@ namespace Sinema_Otomasyon
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1 frm1 = new Form1();
-            frm1.Show();
+            Girisyap giriss = new Girisyap();
+            giriss.Show();
             this.Hide();
         }
 
@@ -196,8 +196,7 @@ namespace Sinema_Otomasyon
             dr22.Close();
             baglanti.Close();
 
-            /////////////////////
-            ///
+          
 
 
 
@@ -213,20 +212,20 @@ namespace Sinema_Otomasyon
             dr3 = komut3.ExecuteReader();
             while (dr3.Read())
             {
-                comboBox3.Items.Add(dr3["seans_adi"]);
+                comboBox3.Items.Add(dr3["seans_saat"]);
             }
             dr3.Close();
             baglanti.Close();
 
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             baglanti.Open();
-            SqlCommand ekle = new SqlCommand("insert into satis(film_adi,salon_adi,seans_id,kisi_adi,kisi_soyadi) values ('" + comboBox1.Text + "','" + comboBox2.Text + "','" + comboBox3.Text + "','" + textBox8.Text + "','" + textBox9.Text + "')", baglanti);
+            SqlCommand ekle = new SqlCommand("insert into satis(film_adi,salon_adi,seans_adi,kisi_adi,kisi_soyadi) values ('" + comboBox1.Text + "','" + comboBox2.Text + "','" + comboBox3.Text.ToString() + "','" + textBox8.Text + "','" + textBox9.Text + "')", baglanti);
             ekle.ExecuteNonQuery();
             ekle.Dispose();
-            MessageBox.Show("Bilet Kesme sİşleminiz Başarıyla Gerçekleşmiştir.", "Kayıt");
+            MessageBox.Show("Film Bilgileriniz Başarıyla Kaydedilmiştir Koltuk Seçimine Gidiniz.", "Kayıt");
 
 
             baglanti.Close();
@@ -235,6 +234,8 @@ namespace Sinema_Otomasyon
             {
                 if (this.Controls[i] is TextBox) this.Controls[i].Text = "";
             }
+            
+            button3.Enabled = true;
         }
 
         private void button5_Click(object sender, EventArgs e)

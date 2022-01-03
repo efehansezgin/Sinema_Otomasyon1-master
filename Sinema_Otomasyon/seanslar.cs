@@ -24,7 +24,7 @@ namespace Sinema_Otomasyon
             ekle.ExecuteNonQuery();
             ekle.Dispose();
             baglanti.Close();
-            MessageBox.Show("Seans Ekleme İşlemi Başarılı");
+            MessageBox.Show("Seans Ekleme İşlemi Başarılı", "Kayıt");
             textBox1.Text = "";
             maskedTextBox1.Text = "";
         }
@@ -50,5 +50,32 @@ namespace Sinema_Otomasyon
         {
             Application.Exit();
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            foreach (Control item3 in dateTimePicker1.Controls)
+            {
+                item3.Enabled = true;
+            }
+
+            DateTime bugün = DateTime.Parse(DateTime.Now.ToShortDateString());
+            DateTime yeni = DateTime.Parse(dateTimePicker1.Text);
+            if (yeni == bugün)
+            {
+                foreach (Control item in dateTimePicker1.Controls)
+                {
+                    if (DateTime.Parse(DateTime.Now.ToShortTimeString()) > DateTime.Parse(item.Text))
+                    {
+                        item.Enabled = false;
+                    }
+                }
+            }
+            else if (yeni < bugün)
+            {
+                MessageBox.Show("Geriye dönük işlem yapılamaz!!!", "Uyarı");
+                dateTimePicker1.Text = DateTime.Now.ToShortDateString();
+            }
+        }
     }
 }
+
